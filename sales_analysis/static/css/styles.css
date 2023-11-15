@@ -1,24 +1,18 @@
-
 .header-container {
     display: flex;
-    justify-content: space-around;
-    margin: 0px;
-}
-
-    .header-container h3 {
+    justify-content: flex-start;
     margin: 0;
 }
-
-    .header-container h3 {
-    margin-right: -200px;
+.header-container h3 {
+    margin-right: 4%;
+}
+.header-container h3:first-child {
+    margin-left: 5%;
 }
 
-
-    .header-container h3:last-child {
-    margin-right: 1200;
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%
 }
-
-    .header-container h3:first-child {
-    margin-left: -150px;
-}
-
