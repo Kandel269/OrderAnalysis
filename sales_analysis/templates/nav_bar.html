@@ -1,0 +1,24 @@
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <title>Your Title</title>
+</head>
+
+<div>
+    <h2>Sales Analysis</h2>
+</div>
+
+<div class="header-container">
+    <h3>Add Product</h3>
+    <h3>Add Customer</h3>
+    <h3>Add Order</h3>
+</div>
+
+<hr>
+
+    {% block content %}
+
+    {% endblock content %}

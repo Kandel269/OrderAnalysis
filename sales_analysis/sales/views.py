@@ -1,3 +1,7 @@
 from django.shortcuts import render
+from .models import *
 
-# Create your views here.
+def home(request):
+    orders = Order.objects.all()
+    context = {'orders': orders}
+    return render(request, 'aa.html', context)

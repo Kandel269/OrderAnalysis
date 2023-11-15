@@ -1,0 +1,5 @@
+{% extends 'nav_bar.html' %}
+
+    {% for order in orders %}
+        {{ order.orderdetail.final_price }},
+    {% endfor %}
