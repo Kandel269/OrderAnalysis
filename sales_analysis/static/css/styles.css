@@ -1,45 +1,43 @@
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-right: 2%;
+    margin-left: 2%;
+}
 .navbar_add {
     display: flex;
     justify-content: flex-start;
     margin: 0;
     white-space: nowrap;
+    margin-top: auto;
 }
-.navbar_add h3 {
-    margin-right: 4%;
+.navbar_login {
+     display: flex;
+     justify-content: flex-end;
+     flex: 1;
+     margin-top: auto;
+     margin-right: 5%;
 }
 .navbar_add h3:first-child {
     margin-left: 5%;
 }
-
-.title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%
+.navbar_add h3,
+.navbar_login h3 {
+    margin: 10px 10px;
 }
-
 .navbar_excel {
     display: flex;
     flex-direction: column;
     margin: 0;
 }
-
 .navbar_excel h3 {
-    margin: 0 0 10px 0; /* Dodanie marginesu na dole dla odstępu między elementami */
+    margin-bottom: 0;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 2%
-}
-
-.navbar_add, .navbar_excel {
-    display: flex;
-    margin: 0;
-}
-
-.navbar_add h3, .navbar_excel h3 {
-    margin: 10 10px;
-}
