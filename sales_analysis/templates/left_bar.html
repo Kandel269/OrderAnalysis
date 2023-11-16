@@ -1,0 +1,41 @@
+{% extends 'nav_bar.html' %}
+{% load static %}
+
+
+
+    {% block left_bar %}
+
+
+    <div class="all_without_navbar">
+        <div class="left_bar">
+
+            <div class="left_bar_analysis">
+                <p>Analysis</p>
+                <p>- clients</p>
+                <p>- orders</p>
+                <p>- localizations</p>
+            </div>
+
+            <div class="left_bar_raports">
+                <p>Raports</p>
+                <p>Sellin prediction</p>
+            </div>
+
+            <div class="left_bar_list">
+                <p>List of:</p>
+                <p>- products</p>
+                <p>- customers</p>
+                <p>- orders</p>
+            </div>
+
+        </div>
+
+        <div class="content">
+            {% block content %}
+
+            {% endblock content %}
+        </div>
+    </div>
+
+
+    {% endblock left_bar %}

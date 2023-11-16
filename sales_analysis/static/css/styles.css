@@ -1,3 +1,4 @@
+/* navbar */
 .title {
     display: flex;
     justify-content: center;
@@ -30,7 +31,7 @@
 }
 .navbar_add h3,
 .navbar_login h3 {
-    margin: 10px 10px;
+    margin: 10px;
 }
 .navbar_excel {
     display: flex;
@@ -39,5 +40,49 @@
 }
 .navbar_excel h3 {
     margin-bottom: 0;
+}
+/* navbar */
+
+.all_without_navbar {
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.left_bar {
+    /* Stylizacja dla lewej belki, w razie potrzeby */
+}
+
+.content {
+    /* Stylizacja dla zawartości, w razie potrzeby */
+}
+
+.left_bar_analysis,
+.left_bar_raports,
+.left_bar_list {
+    /* Stylizacja dla poszczególnych sekcji w lewej belce, w razie potrzeby */
+}
+
+/* Dodaj grid-template-areas, aby kontrolować układ sekcji wewnątrz kontenera .all_without_navbar */
+.left_bar {
+    grid-area: left_bar;
+}
+
+.content {
+    grid-area: content;
+}
+
+/* Nadaj odpowiednie grid-area dla sekcji w lewej belce */
+.left_bar_analysis {
+    grid-area: left_bar_analysis;
+}
+
+.left_bar_raports {
+    grid-area: left_bar_raports;
+}
+
+.left_bar_list {
+    grid-area: left_bar_list;
 }
 
