@@ -1,12 +1,13 @@
-.header-container {
+.navbar_add {
     display: flex;
     justify-content: flex-start;
     margin: 0;
+    white-space: nowrap;
 }
-.header-container h3 {
+.navbar_add h3 {
     margin-right: 4%;
 }
-.header-container h3:first-child {
+.navbar_add h3:first-child {
     margin-left: 5%;
 }
 
@@ -15,4 +16,30 @@
     justify-content: center;
     align-items: center;
     width: 100%
+}
+
+.navbar_excel {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.navbar_excel h3 {
+    margin: 0 0 10px 0; /* Dodanie marginesu na dole dla odstępu między elementami */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 2%
+}
+
+.navbar_add, .navbar_excel {
+    display: flex;
+    margin: 0;
+}
+
+.navbar_add h3, .navbar_excel h3 {
+    margin: 10 10px;
 }
