@@ -5,31 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     <title>Your Title</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
-<div class="title">
-    <h2>Sales Analysis</h2>
+<div id="conatiner">
+        <div id="logo">
+            Sales Analysis
+        </div>
+        <div id="topbar">
+                <div class="topbar_option">Add-Product</div>
+                <div class="topbar_option">Add-Customer</div>
+                <div class="topbar_option">Add-Order</div>
+                <div class="topbar_option">Import data from excel</div>
+                <div class="topbar_option">Export data to excel</div>
+                <div class="topbar_option" style="float: right">Login</div>
+                <div style="clear:both"></div>
+        </div>
+
+    <div id="sidebar">
+        Analysis<br/><br/>
+        Raports<br/><br/>
+        Selling prediction<br/><br/>
+        Data<br/><br/>
+    </div>
+    <div id="content">
+
+    {% block content %}
+
+    {% endblock content %}
+    </div>
+    <div id ="footer">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+    </div>
 </div>
-<div class="navbar">
-    <div class="navbar_add">
-        <h3>Add Product</h3>
-        <h3>Add Customer</h3>
-        <h3>Add Order</h3>
-    </div>
-
-    <div class="navbar_login">
-        <h3>Login</h3>
-    </div>
-
-    <div class="navbar_excel">
-        <h3>Import data from excel</h3>
-        <h3>Export data to excel</h3>
-
-    </div>
-</div>
-<hr>
-
-
-{% block left_bar %}
-
-{% endblock left_bar %}

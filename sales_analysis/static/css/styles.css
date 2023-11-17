@@ -1,88 +1,74 @@
-/* navbar */
-.title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    margin-right: 2%;
-    margin-left: 2%;
-}
-.navbar_add {
-    display: flex;
-    justify-content: flex-start;
-    margin: 0;
-    white-space: nowrap;
-    margin-top: auto;
-}
-.navbar_login {
-     display: flex;
-     justify-content: flex-end;
-     flex: 1;
-     margin-top: auto;
-     margin-right: 5%;
-}
-.navbar_add h3:first-child {
-    margin-left: 5%;
-}
-.navbar_add h3,
-.navbar_login h3 {
-    margin: 10px;
-}
-.navbar_excel {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-}
-.navbar_excel h3 {
-    margin-bottom: 0;
-}
-/* navbar */
-
-.all_without_navbar {
-    display: grid;
-    grid-template-columns: 1fr 8fr;
-    gap: 20px;
-    align-items: flex-start;
+body{
+    background-color: #b3d1ff;
+    font-family: 'Ubuntu Mono', monospace;
 }
 
-.left_bar {
-    /* Stylizacja dla lewej belki, w razie potrzeby */
+#conatiner {
+    width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#logo {
+    color: #ff8000;
+    font-size: 50px;
+    text-align: center;
+    letter-spacing: 4px;
+    margin-top: 0.5%;
+    margin-bottom: 1%;
+    font-weight: 700;
+}
+#topbar {
+    background-color: #ff8000;
+    color: #0066ff;
+    margin-bottom: 10px;
+    padding: 20px;
+    height: 40px;
+    text-align: center;
 }
 
-.content {
-    /* Stylizacja dla zawartości, w razie potrzeby */
-}
+.topbar_option {
+    float: left;
+    font-size: 22px;
+    min-width: 100px;
+    margin-right: 25px;
+    padding: 10px;
 
-.left_bar_analysis,
-.left_bar_raports,
-.left_bar_list {
-    /* Stylizacja dla poszczególnych sekcji w lewej belce, w razie potrzeby */
 }
-
-/* Dodaj grid-template-areas, aby kontrolować układ sekcji wewnątrz kontenera .all_without_navbar */
-.left_bar {
-    grid-area: left_bar;
+.topbar_option:hover {
+    cursor: pointer;
+    background-color: #e67300;
 }
-
-.content {
-    grid-area: content;
+#sidebar {
+    float: left;
+    width: 120px;
+    min-height: 700px;
+    height: 700px;
+    padding: 30px;
+    background-color: #ffad33;
+    text-align: center;
+    font-size: 22px;
+    color: #0066ff;
+    margin-bottom: 10px;
+    margin-right: 10px;
 }
-
-/* Nadaj odpowiednie grid-area dla sekcji w lewej belce */
-.left_bar_analysis {
-    grid-area: left_bar_analysis;
+#content {
+    background-color: white;
+    float: left;
+    padding: 30px;
+    width: 1150px;
+    min-width: 1150px;
+    text-align: center;
+    min-height: 700px;
+    height: 700px;
+    margin-bottom: 10px;
 }
+#footer {
+    background-color: black;
+    clear: both;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
 
-.left_bar_raports {
-    grid-area: left_bar_raports;
-}
-
-.left_bar_list {
-    grid-area: left_bar_list;
 }
 
