@@ -52,8 +52,9 @@ body{
 .sidebar_option {
     float: left;
     font-size: 22px;
-    text-align: center;
+    text-align: left;
     padding: 5px;
+    margin-bottom: 30px;
 }
 .sidebar_option:hover {
     cursor: pointer;
