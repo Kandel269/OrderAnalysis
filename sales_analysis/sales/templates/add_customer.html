@@ -7,7 +7,7 @@
             <h1>Add Customer</h1>
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="save record"/>
+            <input type="submit" name="submit_button" value="save_record"/>
         </form>
     </div>
 {% endblock content %}
