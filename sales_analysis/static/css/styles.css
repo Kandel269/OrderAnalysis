@@ -55,6 +55,7 @@ body{
     text-align: left;
     padding: 5px;
     margin-bottom: 30px;
+    width: 120px;
 }
 .sidebar_option:hover {
     cursor: pointer;
@@ -79,6 +80,10 @@ body{
     text-align: center;
     padding: 20px;
     font-size: 14px;
-
 }
 
+
+/* below only content */
+.content_txt {
+    font-size: 18px;
+}

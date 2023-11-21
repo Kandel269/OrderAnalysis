@@ -43,6 +43,7 @@ class Customer(models.Model):
     def __str__(self):
         return f"{self.name} {self.e_mail}"
 
+
 class OrderDetail(models.Model):
     products = models.ManyToManyField(Product, through='OrderProduct')
     delivery_address = models.CharField(max_length=255)
@@ -76,7 +77,7 @@ class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
     orderdetail = models.ForeignKey(OrderDetail, on_delete=models.PROTECT)
     ordered_date = models.DateTimeField(auto_now=True)
-    delivery_date = models.DateTimeField(null=True, default=None)
+    delivery_date = models.DateTimeField(null=True, default=None, blank=True)
 
     def __str__(self):
         return f"customer: {self.customer.name}, status: {self.order_status}, address: {self.orderdetail}"

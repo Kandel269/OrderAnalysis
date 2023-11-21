@@ -1,0 +1,13 @@
+{% extends 'nav_bar.html' %}
+{% load static %}
+
+{% block content %}
+    <div>
+        <form method="POST">
+            <h1>Add Customer</h1>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="save record"/>
+        </form>
+    </div>
+{% endblock content %}
