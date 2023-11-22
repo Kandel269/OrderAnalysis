@@ -53,5 +53,11 @@ class AddCustomerCreateView(CreateView):
             self.object = None
             return self.form_invalid(form)
 
+class AddOrderCreateView(CreateView):
+    model = Order
+    form_class = OrderForm
+    template_name = "add_order.html"
+    success_url = 'success'
+
 
 

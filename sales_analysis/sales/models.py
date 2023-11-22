@@ -76,7 +76,7 @@ class Order(models.Model):
     order_status = models.CharField(max_length=2, choices=OrderStatus.choices, default=OrderStatus.PENDING)
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
     orderdetail = models.ForeignKey(OrderDetail, on_delete=models.PROTECT)
-    ordered_date = models.DateTimeField(auto_now=True)
+    ordered_date = models.DateTimeField()
     delivery_date = models.DateTimeField(null=True, default=None, blank=True)
 
     def __str__(self):

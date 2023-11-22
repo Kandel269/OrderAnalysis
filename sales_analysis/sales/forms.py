@@ -24,4 +24,11 @@ class CustomerForm(forms.ModelForm):
         model = Customer
         fields = ('name', 'phone', 'e_mail')
 
+class OrderForm(forms.ModelForm):
+    delivery_address = forms.CharField(max_length=255)
+    order_noters = forms.CharField(widget=forms.Textarea, required=False)
+    class Meta:
+        model = Order
+        fields = ('order_status', 'customer','ordered_date')
+
 
