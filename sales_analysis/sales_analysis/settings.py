@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'sales',
     'crispy_forms',
     "crispy_bootstrap4",
+    'formtools',
 
     'django.contrib.admin',
     'django.contrib.auth',

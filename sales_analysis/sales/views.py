@@ -40,11 +40,13 @@ class AddCustomerWizardView(SessionWizardView):
             customer_form.save()
         return redirect('/success')
 
-class AddOrderCreateView(CreateView):
-    model = Order
-    form_class = OrderForm
+class AddOrderCreateView(SessionWizardView):
+    form_list = [OrderForm, DeliveryAddressForm]
     template_name = "add_order.html"
-    success_url = 'success'
+
+    def done(self,form_list,**kwargs):
+        return redirect('/success')
+
 
 
 

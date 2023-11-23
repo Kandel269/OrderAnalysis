@@ -24,13 +24,26 @@ class CustomerForm(forms.ModelForm):
         fields = ('name', 'phone', 'e_mail')
 
 class OrderForm(forms.ModelForm):
-    delivery_address = forms.CharField(max_length=255)
-    order_noters = forms.CharField(widget=forms.Textarea, required=False)
+    order_notes = forms.CharField(widget=forms.Textarea, required=False)
     class Meta:
         model = Order
-        fields = ('order_status', 'customer','ordered_date')
+        fields = ('order_status', 'customer','date_of_order','delivery_date')
+        widgets = {
+            'date_of_order': forms.DateInput(attrs={'type':'date'}),
+            'delivery_date': forms.DateInput(attrs={'type':'date'}),
+                   }
 
 class AddressForm(forms.ModelForm):
+    class Meta:
+        model = Address
+        fields = '__all__'
+
+class DeliveryAddressForm(forms.ModelForm):
+    BOOL_CHOICES = [(True, "Yes"), (False, "No")]
+    use_customer_address = forms.BooleanField(
+        widget = forms.RadioSelect(choices=BOOL_CHOICES, attrs={'id': 'use_customer_address'}),
+        required=False
+    )
     class Meta:
         model = Address
         fields = '__all__'

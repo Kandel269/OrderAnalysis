@@ -25,7 +25,7 @@ class Address(models.Model):
     city = models.CharField(max_length= 255)
     street = models.CharField(max_length=255)
     building_number = models.CharField(max_length=255)
-    local_number = models.CharField(max_length=255)
+    local_number = models.CharField(max_length=255, null = True, blank=True)
 
     def __str__(self):
         return f"City: {self.city}, Street: {self.street} {self.building_number}/{self.local_number}, postal-code: {self.postal_code}"
@@ -43,10 +43,9 @@ class Customer(models.Model):
     def __str__(self):
         return f"{self.name} {self.e_mail}"
 
-
 class OrderDetail(models.Model):
     products = models.ManyToManyField(Product, through='OrderProduct')
-    delivery_address = models.CharField(max_length=255)
+    delivery_address = models.ForeignKey(Address, on_delete=models.PROTECT)
     order_notes = models.TextField(null=True, blank=True)
 
     def __str__(self):
@@ -76,7 +75,7 @@ class Order(models.Model):
     order_status = models.CharField(max_length=2, choices=OrderStatus.choices, default=OrderStatus.PENDING)
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
     orderdetail = models.ForeignKey(OrderDetail, on_delete=models.PROTECT)
-    ordered_date = models.DateTimeField()
+    date_of_order = models.DateTimeField()
     delivery_date = models.DateTimeField(null=True, default=None, blank=True)
 
     def __str__(self):
