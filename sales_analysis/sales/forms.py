@@ -15,10 +15,6 @@ class CustomerForm(forms.ModelForm):
         required=False
     )
 
-    # def clean(self):
-    #     cleaned_data = super().clean()
-    #     if cleaned_data.get('add_address') and not (cleaned_data.get('postal_code') and cleaned_data.get('city')  and cleaned_data.get('street')  and cleaned_data.get('building_number')  and cleaned_data.get('local_number')):
-    #         self.add_error('postal_code',"If 'Add address' is enabled, you must complete the fields below.")
     class Meta:
         model = Customer
         fields = ('name', 'phone', 'e_mail')
