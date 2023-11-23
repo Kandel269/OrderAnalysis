@@ -1,4 +1,5 @@
 {% extends 'nav_bar.html' %}
+{% load crispy_forms_tags %}
 {% load i18n %}
 
 {% block head %}
@@ -13,10 +14,10 @@
     {% if wizard.form.forms %}
         {{ wizard.form.management_form }}
         {% for form in wizard.form.forms %}
-            {{ form.as_table }}
+            {{ form|crispy }}
         {% endfor %}
     {% else %}
-        {{ wizard.form }}
+        {{ wizard.form|crispy }}
     {% endif %}
     </table>
     {% if wizard.steps.prev %}

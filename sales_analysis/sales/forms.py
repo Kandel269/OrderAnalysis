@@ -34,8 +34,4 @@ class AddressForm(forms.ModelForm):
     class Meta:
         model = Address
         fields = '__all__'
-    # postal_code = forms.CharField(max_length=10, required=False)
-    # city = forms.CharField(max_length=255, required=False)
-    # street = forms.CharField(max_length=255, required=False)
-    # building_number = forms.CharField(max_length=255, required=False)
-    # local_number = forms.CharField(max_length=255, required=False)
+
