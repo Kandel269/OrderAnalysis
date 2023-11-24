@@ -20,7 +20,12 @@
         {{ wizard.form|crispy }}
     {% endif %}
     </table>
-
+    {% if wizard.steps.current == "1" %}
+        {% if customer.address %}
+            <p>Customer address: {{ customer.address }}<p>
+        {% else %}
+            <p>Not existing address linked to the customer.</p>
+        {% endif %}
     {% endif %}
     {% if wizard.steps.prev %}
     <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">{% translate "first step" %}</button>
