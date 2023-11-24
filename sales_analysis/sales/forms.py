@@ -34,15 +34,13 @@ class AddressForm(forms.ModelForm):
         model = Address
         fields = '__all__'
 
-class DeliveryAddressForm(forms.ModelForm):
+class DeliveryAddressForm(AddressForm):
     BOOL_CHOICES = [(True, "Yes"), (False, "No")]
     use_customer_address = forms.BooleanField(
         widget = forms.RadioSelect(choices=BOOL_CHOICES, attrs={'id': 'use_customer_address'}),
         required=False
     )
-    class Meta:
-        model = Address
-        fields = '__all__'
+
 
 class OrderProductForm(forms.ModelForm):
     class Meta:

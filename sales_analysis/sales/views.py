@@ -55,6 +55,25 @@ class AddOrderCreateView(SessionWizardView):
         return context
 
     def done(self,form_list,**kwargs):
+        order_form, delivery_address_form, order_product_form = form_list
+
+        order_notes = order_form.cleaned_data.get('order_notes')
+        order_product = order_product_form.save(commit = False) #order_detail
+        order = order_form.save(commit=False) #orderdetail
+
+        if delivery_address_form.cleaned_data.get('use_customer_address'):
+            pass
+        else:
+            address = delivery_address_form.save()
+
+            order_detail = OrderDetail.objects.create(delivery_address = address, order_notes = order_notes)
+
+
+        order.orderdetail = order_detail
+        order_product.order_detail = order_detail
+
+        order_product.save()
+        order.save()
         return redirect('/success')
 
 

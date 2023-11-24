@@ -28,7 +28,7 @@ class Address(models.Model):
     local_number = models.CharField(max_length=255, null = True, blank=True)
 
     def __str__(self):
-        return f"City: {self.city}, Street: {self.street} {self.building_number}/{self.local_number}, postal-code: {self.postal_code}"
+        return f"City: {self.city}, street: {self.street} {self.building_number}/{self.local_number}, postal-code: {self.postal_code}" if self.local_number else f"City: {self.city}, street: {self.street} {self.building_number}, postal-code: {self.postal_code}"
 
     class Meta:
         verbose_name = "Address"
@@ -49,7 +49,7 @@ class OrderDetail(models.Model):
     order_notes = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return self.delivery_address
+        return f"Delivery_address = City: {self.delivery_address.city}, street: {self.delivery_address.street} {self.delivery_address.building_number}/{self.delivery_address.local_number}, postal-code: {self.delivery_address.postal_code}" if self.delivery_address.local_number else f"Delivery_address = City: {self.delivery_address.city}, street: {self.delivery_address.street} {self.delivery_address.building_number}, postal-code: {self.delivery_address.postal_code}"
 
     @property
     def final_price(self):
