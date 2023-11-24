@@ -62,13 +62,12 @@ class AddOrderCreateView(SessionWizardView):
         order = order_form.save(commit=False) #orderdetail
 
         if delivery_address_form.cleaned_data.get('use_customer_address'):
-            pass
+            customer = order_form.cleaned_data.get('customer')
+            address = customer.address
         else:
             address = delivery_address_form.save()
 
-            order_detail = OrderDetail.objects.create(delivery_address = address, order_notes = order_notes)
-
-
+        order_detail = OrderDetail.objects.create(delivery_address = address, order_notes = order_notes)
         order.orderdetail = order_detail
         order_product.order_detail = order_detail
 
