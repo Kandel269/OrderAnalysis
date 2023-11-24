@@ -10,6 +10,10 @@ def show_address_form(wizard):
     cleaned_data = wizard.get_cleaned_data_for_step('0') or {}
     return cleaned_data.get('add_address')
 
+def show_customer_form(wizard):
+    cleaned_data = wizard.get_cleaned_data_for_step('0') or {}
+    return cleaned_data.get('customer')
+
 class FormSuccessView(View):
     def get(self, request):
         return render(request,'success.html')
@@ -41,8 +45,16 @@ class AddCustomerWizardView(SessionWizardView):
         return redirect('/success')
 
 class AddOrderCreateView(SessionWizardView):
-    form_list = [OrderForm, DeliveryAddressForm]
+    form_list = [OrderForm, DeliveryAddressForm,OrderProductForm]
     template_name = "add_order.html"
+    context = {"customer":'dsafdsgfd'}
+
+    def get_context_data(self, form, **kwargs):
+        context = super().get_context_data(form=form, **kwargs)
+        if self.steps.current == 'DeliveryAddressForm':
+            print('duuuuuuuuuuuuuuuuupaaaaaaaaaaaaaaaa')
+            context.update({'customer': show_customer_form})
+        return context
 
     def done(self,form_list,**kwargs):
         return redirect('/success')

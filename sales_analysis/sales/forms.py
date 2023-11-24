@@ -44,3 +44,8 @@ class DeliveryAddressForm(forms.ModelForm):
         model = Address
         fields = '__all__'
 
+class OrderProductForm(forms.ModelForm):
+    class Meta:
+        model = OrderProduct
+        fields = ('product','quantity')
+
