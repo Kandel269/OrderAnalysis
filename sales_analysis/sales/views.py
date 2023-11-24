@@ -10,6 +10,10 @@ def show_address_form(wizard):
     cleaned_data = wizard.get_cleaned_data_for_step('0') or {}
     return cleaned_data.get('add_address')
 
+def use_customer_address_or_show_form(wizard):
+    cleaned_data = wizard.get_cleaned_data_for_step('1') or {}
+    return cleaned_data.get('use_customer_address')
+
 class FormSuccessView(View):
     def get(self, request):
         return render(request,'success.html')
@@ -41,9 +45,9 @@ class AddCustomerWizardView(SessionWizardView):
         return redirect('/success')
 
 class AddOrderCreateView(SessionWizardView):
-    form_list = [OrderForm, DeliveryAddressForm,OrderProductForm]
+    form_list = [OrderForm, ChooseDeliveryAddressForm, AddressForm, OrderProductForm]
     template_name = "add_order.html"
-
+    condition_dict = {"2": use_customer_address_or_show_form}
 
     def get_context_data(self, form, **kwargs):
         context = super().get_context_data(form=form, **kwargs)
@@ -55,17 +59,20 @@ class AddOrderCreateView(SessionWizardView):
         return context
 
     def done(self,form_list,**kwargs):
-        order_form, delivery_address_form, order_product_form = form_list
+        order_form = form_list[0]
+        order_product_form = form_list[-1]
+        choose_address_form = form_list[1]
 
         order_notes = order_form.cleaned_data.get('order_notes')
         order_product = order_product_form.save(commit = False) #order_detail
         order = order_form.save(commit=False) #orderdetail
 
-        if delivery_address_form.cleaned_data.get('use_customer_address'):
+        if not choose_address_form.cleaned_data.get('use_customer_address'):
             customer = order_form.cleaned_data.get('customer')
             address = customer.address
         else:
-            address = delivery_address_form.save()
+            address_form = form_list[-2]
+            address = address_form.save()
 
         order_detail = OrderDetail.objects.create(delivery_address = address, order_notes = order_notes)
         order.orderdetail = order_detail
